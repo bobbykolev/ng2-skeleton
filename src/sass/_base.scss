@@ -1,0 +1,129 @@
+body {
+	color: #555;
+	font-family: 'Titillium Web', Helvetica, Arial;
+	font-weight: 400;
+}
+a {
+    color: $mainColor;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+button {
+	height: 38px;
+	font-weight: 600;
+	color: $mainColor;
+    //border-top: 1px solid lighten(#408be4, 5%);
+}
+
+footer {
+	text-align: center;
+}
+
+#wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-itmes: stretch;
+	flex-wrap: nowrap;
+	height: 100%;
+
+	> div {
+		&:first-of-type {
+
+		}
+
+		&:nth-child(2) {
+			flex: 1 1 auto;
+			overflow-y: auto;
+    		min-height: 0px;
+		}
+	}
+}
+
+/******************************/
+
+//nav toggle
+#nav-ani-icon {
+  width: 36px;
+  height: 36px;
+  position: relative;
+  //margin: 50px auto;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+#nav-ani-icon span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  //background: #d3531a;
+  border-radius: 0;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+#nav-ani-icon span:nth-child(1) {
+  top: 10px;
+  transform-origin: left center;
+}
+
+#nav-ani-icon span:nth-child(2) {
+  top: 19px;
+  transform-origin: left center;
+}
+
+#nav-ani-icon span:nth-child(3) {
+  top: 32px;
+  transform-origin: left center;
+}
+
+#nav-ani-icon.open span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 7px;
+  left: 8px;
+}
+
+#nav-ani-icon.open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+#nav-ani-icon.open span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 28px;
+  left: 8px;
+}
+
+
+/******************************/
+
+//animation
+.view-animate-container {
+	overflow-x: hidden;
+}
+.view-animate {
+	//position: absolute;
+	width: 100%;
+}
+.view-animate.ng-enter{
+  transform: translate3d(100%, 0, 0);
+  transition: all 0.3s linear;
+}
+.view-animate.ng-leave {
+  opacity: 0;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.3s linear;
+}
+.view-animate.ng-enter-active {
+  transform: translate3d(0, 0, 0);
+  transition: all 0.3s linear;
+}
+.view-animate.ng-leave.ng-leave-active {
+	transform: translate3d(-100%, 0, 0);
+}

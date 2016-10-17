@@ -1,0 +1,14 @@
+<div class="app-modal" [ngClass]="visible ? 'active' : ''">
+	<div class="dim" (click)="cancel($event, 'dim')">
+		<div>
+			<div>{{options.title}}</div>
+			<div>
+				<div *ngFor="let c of options.rows; let i = index; trackBy: trackByFn" [innerHTML]="c"></div>
+			</div>
+			<div class="btns" *ngIf="options.isConfirm">
+				<button class="btn btn-default" (click)="cancel($event)">Cancel</button>
+				<button class="btn btn-default" (click)="ok($event)">Ok</button>
+			</div>
+		</div>
+	</div>
+</div>
