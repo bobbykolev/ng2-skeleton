@@ -45,5 +45,12 @@ export class HomeComponent implements OnInit {
   	this.commonService.hideLoader();
   }
 
+  formatSrc (src) {
+    let s = src.split('/');
+    s.pop();
+
+    return s.join('/') + '/1976D2';
+  }
+
 }
 

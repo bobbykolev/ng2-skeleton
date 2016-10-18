@@ -4,7 +4,7 @@
 <div>
 	<ul>
 		<li *ngFor="let img of images; let i = index;">
-			<img src="{{img.thumbnailUrl}}" alt="">
+			<img src="{{formatSrc(img.thumbnailUrl)}}" alt="">
 		</li>
 	</ul>
 </div>
