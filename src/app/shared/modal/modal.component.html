@@ -7,7 +7,7 @@
 			</div>
 			<div class="btns" *ngIf="options.isConfirm">
 				<button class="btn btn-default" (click)="cancel($event)">Cancel</button>
-				<button class="btn btn-default" (click)="ok($event)">Ok</button>
+				<button *ngIf="options.hasOk" class="btn btn-default" (click)="ok($event)">Ok</button>
 			</div>
 		</div>
 	</div>

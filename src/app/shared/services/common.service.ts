@@ -24,4 +24,16 @@ export class CommonService {
 	hideLoader() {
 		this.loaderSubject.next(<any>{ show: false });
 	}
+
+	deepCopy(copy, data) {
+		if (typeof data.length !== 'undefined') {
+			copy = [];
+			
+			data.forEach((x) => {
+				copy.push(Object.assign({}, x));
+			});
+		} else {
+			copy = Object.assign({}, data);
+		}
+	}
 }

@@ -44,10 +44,12 @@ export class ModalComponent implements OnInit, OnDestroy {
   	this.visible = true;
   }
 
-  cancel (e) {
+  cancel (e, isDim) {
   	e && e.preventDefault();
-  	this.visible = false;
-  	this.options.cancel && this.options.cancel(false);
+    if (!isDim || (isDim && e.target.classList.contains('dim'))) {
+        this.visible = false;
+        this.options.cancel && this.options.cancel(false);
+    }
   }
 
   ok (e) {

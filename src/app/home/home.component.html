@@ -1,3 +1,10 @@
 <h1>
   home
 </h1>
+<div>
+	<ul>
+		<li *ngFor="let img of images; let i = index;">
+			<img src="{{img.thumbnailUrl}}" alt="">
+		</li>
+	</ul>
+</div>

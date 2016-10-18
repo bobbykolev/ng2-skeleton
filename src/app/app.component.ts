@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute, Params, NavigationStart, NavigationEnd } from '@angular/router';
 import { CommonService } from './shared/services/common.service';
+import './rxjs-operators';
+import './polyfills';
 
 @Component({
   selector: 'app-root',
