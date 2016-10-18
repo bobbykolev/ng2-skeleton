@@ -21,14 +21,7 @@ export class AppComponent {
   	let that = this;
 
  	if(val && val instanceof NavigationStart) {
- 		this.commonService.showLoader();
-    }
-
-    //todo: temp -> remove
-    if(val && val instanceof NavigationEnd) {
-    	setTimeout(function(){
-    		that.commonService.hideLoader();
-    	}, 500);
+ 		  //this.commonService.showLoader();
     }
   }
 }

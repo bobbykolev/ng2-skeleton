@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RestService } from '../shared/services/rest.service';
 import { CommonService } from '../shared/services/common.service';
 import { Observable }     from 'rxjs/Observable';
@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit {
   dataAll: Object[];
   images: Object[];
   errorMessage: String;
-  imagesObservable: Observable<any>;
   dataLimit: Number;
 
   constructor(private restService: RestService, private commonService: CommonService) {
@@ -21,12 +20,15 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.commonService.showLoader();
   	this.dataLimit = 40;
+    this.getData();								
+  }
 
-  	this.imagesObservable = this.restService.send('GET', {url: 'photos'})
-  								.subscribe(
-  									this.onDataSuccess.bind(this),
-		                       		this.onDataError.bind(this));
+  getData () {
+    this.restService.send('GET', {url: 'photos'}).subscribe(
+                    this.onDataSuccess.bind(this),
+                    this.onDataError.bind(this));
   }
 
   onDataSuccess (data) {

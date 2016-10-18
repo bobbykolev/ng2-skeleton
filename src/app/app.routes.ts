@@ -5,5 +5,6 @@ import { AboutRoutes } from './about/about.routes';
 
 export const routes: Routes = [
   ...HomeRoutes,
-  ...AboutRoutes
+  ...AboutRoutes,
+  { path: '**', redirectTo: '/', pathMatch: 'full'}
 ];
