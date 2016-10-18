@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
 
   dataAll: Object[];
   images: Object[];
+  observeData: Observable<Object[]>;
   errorMessage: String;
   dataLimit: Number;
 
@@ -22,11 +23,13 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.commonService.showLoader();
   	this.dataLimit = 40;
-    this.getData();								
+    
+    this.getData();
   }
 
   getData () {
-    this.restService.send('GET', {url: 'photos'}).subscribe(
+    this.observeData = this.restService.send('GET', {url: 'photos'});
+    this.observeData.subscribe(
                     this.onDataSuccess.bind(this),
                     this.onDataError.bind(this));
   }
