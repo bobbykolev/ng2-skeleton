@@ -13,10 +13,9 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   btnId: string;
   menu: any;
   btn: any;
-  commonService: CommonService;
 
-  constructor(commonService: CommonService) {
-  	this.commonService = commonService;
+  constructor(private commonService: CommonService) {
+
   }
 
   ngOnInit() {
@@ -44,7 +43,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
   showModal (e) {
     e && e.preventDefault();
-    this.commonService.show({title: 'Confirm', rows: ['<strong>Change title?</strong>'], ok: this.modalResult.bind(this), cancel: this.modalResult.bind(this)});
+    this.commonService.showModal({title: 'Confirm', rows: ['<strong>Change title?</strong>'], ok: this.modalResult.bind(this), cancel: this.modalResult.bind(this)});
   }
 
   modalResult(success) {

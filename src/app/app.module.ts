@@ -10,8 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
-import { ModalComponent } from './shared/modal/modal.component';
-import { CommonService } from './shared/services/common.service';
+
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -19,16 +19,16 @@ import { CommonService } from './shared/services/common.service';
     HomeComponent,
     AboutComponent,
     HeaderComponent,
-    FooterComponent,
-    ModalComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
+    SharedModule
   ],
-  providers: [CommonService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -41,6 +41,22 @@ footer {
 	}
 }
 
+.view-animate-container {
+  > app-loader > div {
+      position: absolute;
+      display: flex;
+      width: 100%;
+      height: calc(100% - 50px);
+      background: rgba(255,255,255,.8);
+      top: 50px;
+      left: 0;
+      z-index: 3;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+  }
+}
+
 /******************************/
 
 //nav toggle

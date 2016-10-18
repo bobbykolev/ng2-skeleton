@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonService } from '../services/common.service';
 
 @Component({
@@ -6,15 +6,14 @@ import { CommonService } from '../services/common.service';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss']
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent implements OnInit, OnDestroy {
   defaults: Object;
   options: Object;
   visible: boolean;
-  cs: any;
+  modalChange: any;
 
-  constructor(commonService: CommonService) {
-  	this.cs = commonService;
-  	commonService.showModal$.subscribe(opts => this.show(opts));
+  constructor(private commonService: CommonService) {
+
   }
 
   ngOnInit() {
@@ -33,13 +32,15 @@ export class ModalComponent implements OnInit {
 
   	this.options = this.defaults;
 
-  	/*setTimeout(function(){
-  		that.show({title: 'Wow', rows: ['<strong>data 1</strong>', '<strong>data 2</strong>']});
-  	},5000);*/
+    this.modalChange = this.commonService.showModal$.subscribe(opts => this.show(opts));
+  }
+
+  ngOnDestroy() {
+    this.modalChange.unsubscribe();
   }
 
   show (options) {
-  	Object.assign(this.options, this.defaults, options);
+  	this.options = Object.assign({}, this.defaults, options);
   	this.visible = true;
   }
 
