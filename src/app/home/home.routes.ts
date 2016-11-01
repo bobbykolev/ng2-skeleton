@@ -3,7 +3,7 @@ import { HomeComponent } from './home.component';
 
 export const HomeRoutes: Route[] = [
   {
-    path: '',
+    path: 'home',
     component: HomeComponent
   }
 ];

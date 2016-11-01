@@ -4,7 +4,9 @@
 <div>
 	<ul>
 		<li *ngFor="let img of images; let i = index;">
-			<img src="{{formatSrc(img.thumbnailUrl)}}" alt="">
+			<a [routerLink]="['/item', i]">
+				<img src="{{formatSrc(img.thumbnailUrl)}}" alt="">
+			</a>
 		</li>
 	</ul>
 </div>
