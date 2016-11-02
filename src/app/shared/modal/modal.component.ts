@@ -8,7 +8,7 @@ import { CommonService } from '../services/common.service';
 })
 export class ModalComponent implements OnInit, OnDestroy {
   defaults: Object;
-  options: Object;
+  options: any;
   visible: boolean;
   modalChange: any;
 
@@ -22,7 +22,7 @@ export class ModalComponent implements OnInit, OnDestroy {
   	this.visible = false;
 
   	this.defaults = {
-  		title: 'Warrning',
+  		  title: 'Warrning',
         rows: ['<div>Test</div>'],
         isConfirm: true,
         hasOk: true, 

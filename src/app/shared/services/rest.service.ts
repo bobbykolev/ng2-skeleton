@@ -12,7 +12,7 @@ export class RestService {
   	this.url = environment.restUrl;
   }
 
-  send (type: String, options: Object): Observable<any> {
+  send (type: String, options): Observable<any> {
   	let headers, opts;
 
   	if (options.headers) {

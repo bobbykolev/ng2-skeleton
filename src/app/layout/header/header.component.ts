@@ -81,7 +81,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   onResize () {
     let height = window.innerHeight || 0,
         width = window.innerWidth || 0,
-        element = document.querySelectorAll('#main-menu>ul')[0];
+        element = <HTMLElement>document.querySelectorAll('#main-menu>ul')[0];
 
     //set doc height on toggle menu for small res
     element.style.height = height && width < 768 ? (height-1) + 'px' : 'inherit';
