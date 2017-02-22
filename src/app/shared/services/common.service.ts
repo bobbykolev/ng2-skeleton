@@ -25,15 +25,19 @@ export class CommonService {
 		this.loaderSubject.next(<any>{ show: false });
 	}
 
-	deepCopy(copy, data) {
+	deepCopy(data) {
+		let result;
+
 		if (typeof data.length !== 'undefined') {
-			copy = [];
+			result = [];
 			
 			data.forEach((x) => {
-				copy.push(Object.assign({}, x));
+				result.push(Object.assign({}, x));
 			});
 		} else {
-			copy = Object.assign({}, data);
+			result = Object.assign({}, data);
 		}
+
+		return result;
 	}
 }

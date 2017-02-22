@@ -35,11 +35,9 @@ export class HomeComponent implements OnInit {
   }
 
   onDataSuccess (data) {
-  	this.commonService.deepCopy(this.dataAll, data);
-
-  	this.images = data.slice(0, this.dataLimit);
-  	this.commonService.deepCopy(this.dataAll, data);
-  	this.commonService.hideLoader();
+  	this.dataAll = this.commonService.deepCopy(data);
+    this.images = data.slice(0, this.dataLimit);
+    this.commonService.hideLoader();
   }
 
   onDataError (error) {
